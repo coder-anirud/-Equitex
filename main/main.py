@@ -5,7 +5,15 @@ from alpaca_trade_api.rest import REST, TimeFrame, TimeFrameUnit
 from datetime import datetime, timedelta, timezone
 # ==========================
 # CONFIG
+# version 2 config with ml modeling that predicts the path of the price, therefore. We are able to accuratly get the x
+
+
 # ==========================
+
+
+
+
+
 
 API_KEY = "PKK4PBNTPFR6D424HJIY7ASMBO"
 API_SECRET = "6xuRBXP1DuU6xf3oqXgMxHUk681cnX6eH6EugPyrF1qz"
@@ -63,6 +71,7 @@ def get_daily_data(symbol, days=700):
         bars["MA200D"] = bars["close"].rolling(200, min_periods=200).mean()
         bars["RSI14D"] = compute_rsi(bars["close"], 14)
         bars["VOL20D"] = bars["volume"].rolling(20, min_periods=20).mean()
+
 
         # Keep only rows where everything needed exists
         bars = bars.dropna(subset=["MA50D", "MA200D", "RSI14D", "VOL20D"])
