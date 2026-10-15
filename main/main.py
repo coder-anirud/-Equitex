@@ -1,3 +1,4 @@
+import os
 import time
 import pandas as pd
 from datetime import datetime
@@ -7,8 +8,8 @@ from datetime import datetime, timedelta, timezone
 # CONFIG
 # ==========================
 
-API_KEY = "PKK4PBNTPFR6D424HJIY7ASMBO"
-API_SECRET = "6xuRBXP1DuU6xf3oqXgMxHUk681cnX6eH6EugPyrF1qz"
+API_KEY = os.environ["APCA_API_KEY_ID"]
+API_SECRET = os.environ["APCA_API_SECRET_KEY"]
 BASE_URL = "https://paper-api.alpaca.markets"
 
 SYMBOLS = ["TSLA", "NVDA", "GME"]
